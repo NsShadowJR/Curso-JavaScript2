@@ -1,3 +1,1 @@
-await new Promise((resolve, reject) => {
-    
-})
+await
