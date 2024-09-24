@@ -1,4 +1,4 @@
-// Función que verifica la seguridad de la contraseña
+// Control que verifica que la contraseña sea correcta
 function verificarContrasena() {
     const contrasena = prompt("Por favor ingresa tu contraseña:");
 
@@ -13,7 +13,7 @@ function verificarContrasena() {
     const tieneNumero = /\d/.test(contrasena);
     const tieneCaracterEspecial = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\\-]/.test(contrasena);
 
-    // Verificar que todos los criterios se cumplan
+    // Aqui se verifica que todos los criterios se cumplan
     if (!tieneLongitudSuficiente) {
         alert("La contraseña debe tener al menos 8 caracteres.");
     } else if (!tieneMayuscula) {
@@ -26,7 +26,7 @@ function verificarContrasena() {
         alert("¡Contraseña válida!");
     }
 
-    // Imprimir el estado de la contraseña en la consola
+    // Se imprime el estado de la contraseña en la consola
     console.log(`Contraseña ingresada: ${contrasena}`);
     console.log(`Longitud suficiente: ${tieneLongitudSuficiente}`);
     console.log(`Contiene mayúscula: ${tieneMayuscula}`);
@@ -34,7 +34,7 @@ function verificarContrasena() {
     console.log(`Contiene carácter especial: ${tieneCaracterEspecial}`);
 }
 
-// Ejecutar la función automáticamente cuando se cargue la página
+// Esta parte es necesaria para mostrar todo en pantalla
 window.onload = function() {
     verificarContrasena();
 };
