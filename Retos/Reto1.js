@@ -1,28 +1,58 @@
-let texto = prompt("Ingrese una cadena de texto:").toLowerCase();
-
-let contadorA = 0;
-let contadorE = 0;
-let contadorI = 0;
-let contadorO = 0;
-let contadorU = 0;
-
-for (let i = 0; i < texto.length; i++) {
-    let caracter = texto[i];
-    if (caracter === 'a') {
-        contadorA++;
-    } else if (caracter === 'e') {
-        contadorE++;
-    } else if (caracter === 'i') {
-        contadorI++;
-    } else if (caracter === 'o') {
-        contadorO++;
-    } else if (caracter === 'u') {
-        contadorU++;
+// Función para contar cuántas veces aparecen las vocales en la cadena de texto
+function contarVocales() {
+    // Solicitar la cadena de texto al usuario
+    let texto = prompt("Por favor ingresa una cadena de texto:");
+    
+    // Inicializar contadores para cada vocal
+    let contadorA = 0;
+    let contadorE = 0;
+    let contadorI = 0;
+    let contadorO = 0;
+    let contadorU = 0;
+    
+    // Convertir el texto a minúsculas para ignorar las mayúsculas
+    texto = texto.toLowerCase();
+    
+    // Recorrer cada carácter de la cadena
+    for (let i = 0; i < texto.length; i++) {
+        let caracter = texto[i];
+        
+        // Contar las vocales
+        switch (caracter) {
+            case 'a':
+                contadorA++;
+                break;
+            case 'e':
+                contadorE++;
+                break;
+            case 'i':
+                contadorI++;
+                break;
+            case 'o':
+                contadorO++;
+                break;
+            case 'u':
+                contadorU++;
+                break;
+        }
     }
+    
+    // Mostrar los resultados en la consola
+    console.log(`En la cadena ingresada, la vocal 'a' aparece ${contadorA} veces.`);
+    console.log(`En la cadena ingresada, la vocal 'e' aparece ${contadorE} veces.`);
+    console.log(`En la cadena ingresada, la vocal 'i' aparece ${contadorI} veces.`);
+    console.log(`En la cadena ingresada, la vocal 'o' aparece ${contadorO} veces.`);
+    console.log(`En la cadena ingresada, la vocal 'u' aparece ${contadorU} veces.`);
+    
+    // Mostrar los resultados en una alerta
+    alert(`En la cadena ingresada, la vocal 'a' aparece ${contadorA} veces.\n` +
+          `La vocal 'e' aparece ${contadorE} veces.\n` +
+          `La vocal 'i' aparece ${contadorI} veces.\n` +
+          `La vocal 'o' aparece ${contadorO} veces.\n` +
+          `La vocal 'u' aparece ${contadorU} veces.`);
 }
 
-console.log(`La vocal 'a' aparece: ${contadorA} veces`);
-console.log(`La vocal 'e' aparece: ${contadorE} veces`);
-console.log(`La vocal 'i' aparece: ${contadorI} veces`);
-console.log(`La vocal 'o' aparece: ${contadorO} veces`);
-console.log(`La vocal 'u' aparece: ${contadorU} veces`);
+// Ejecutar la función automáticamente cuando se cargue la página
+window.onload = function() {
+    contarVocales();
+};
