@@ -27,13 +27,13 @@ class Texto {
     return textoObj.contarCaracteres();
   }
   
-  // Función para mostrar el resultado usando una instancia de la clase Texto
+ 
   function mostrarResultadoTexto(texto) {
     let textoObj = new Texto(texto);
     textoObj.mostrarResultado();
   }
   
-  //Lógica principal que combina funciones y clases
+ // aqui comenze a usar las clases y funciones
   let textoIngresado = solicitarTexto();
   let numeroCaracteres = contarCaracteresTexto(textoIngresado);
   mostrarResultadoTexto(textoIngresado);
