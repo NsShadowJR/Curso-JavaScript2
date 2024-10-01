@@ -79,7 +79,7 @@ class Password {
     pwd.mostrarResultado(esValida);
   }
   
-  // Lógica principal que combina funciones y clases
+  // con esta parte se combinan funciones y clases
   let passwordIngresada = solicitarPassword();
   validarPassword(passwordIngresada);
   
