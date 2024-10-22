@@ -17,7 +17,7 @@ export default function App() {
   );
 }
 
-// Componente para el Menú Principal
+
 function MenuScreen({ navigation }) {
   return (
     <View style={styles.container}>
