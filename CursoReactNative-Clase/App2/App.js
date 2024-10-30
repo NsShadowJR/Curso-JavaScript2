@@ -1,23 +1,14 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View, Image, TouchableHighlight, Pressable } from 'react-native';
+import { Text, StyleSheet, View, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function App() {
-  // Funciones para mostrar alertas
-  const showAlert = () => {
-    Alert.alert("Alerta", "Este es un mensaje de alerta básico.");
-  };
-
-  const showCustomAlert = () => {
-    Alert.alert("Alerta Personalizada", "Este es un mensaje de alerta personalizada.");
-  };
-
-  const showGoogleAlert = () => {
-    Alert.alert("Alerta Google", "Este es un mensaje de alerta del botón con ícono de Google.");
-  };
-
   return (
-    <LinearGradient colors={['#ff0000', '#011111']} style={styles.background}>
+    <LinearGradient
+      // Define los colores
+      colors={['#ff0000', '#011111']}
+      style={styles.background}
+    >
       <View style={styles.container}>
         <Image 
           source={require('./assets/LOGO ORIGINAL TRANSPARENCIA.png')} // Imagen local
@@ -28,23 +19,12 @@ export default function App() {
         </Text>
       </View>
 
-      {/* Botón básico */}
-      <View style={styles.buttonContainer}>
-        <Button title="Mostrar Alerta" onPress={showAlert} />
-
-        {/* Botón personalizado con TouchableHighlight */}
-        <TouchableHighlight style={styles.customButton} onPress={showCustomAlert} underlayColor="#DDDDDD">
-          <Text style={styles.customButtonText}>Mostrar Alerta Personalizada</Text>
-        </TouchableHighlight>
-
-        {/* Botón personalizado con Pressable e ícono de Google */}
-        <Pressable style={styles.googleButton} onPress={showGoogleAlert}>
-          <Image
-            source={{ uri: 'https://developers.google.com/identity/images/branding_guideline_sample_lt_rd_lg.svg' }}
-            style={styles.googleIcon}
-          />
-          <Text style={styles.googleButtonText}>Continuar con Google</Text>
-        </Pressable>
+      {/* Imagen de Google para registro desde URL */}
+      <View style={styles.googleContainer}>
+        <Image
+          source={{ uri: 'https://www.drupal.org/files/issues/2020-01-26/google_logo.png' }} // Imagen desde URL
+          style={styles.googleImage}
+        />
       </View>
     </LinearGradient>
   );
@@ -71,43 +51,14 @@ const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
-  buttonContainer: {
-    marginTop: 30,
+  googleContainer: {
+    marginTop: 40,
+    marginBottom: 40,
     alignItems: 'center',
   },
-  customButton: {
-    backgroundColor: '#4CAF50',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    width: 250,
-    alignItems: 'center',
-  },
-  customButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#4285F4',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    width: 250,
-    justifyContent: 'center',
-  },
-  googleIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
-    resizeMode: 'contain',
-  },
-  googleButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
+  googleImage: {
+    width: 200, // Ajusta el ancho según sea necesario
+    height: 50, // Ajusta la altura según sea necesario
+    resizeMode: 'contain', // Mantiene la proporción de la imagen
   },
 });
-e

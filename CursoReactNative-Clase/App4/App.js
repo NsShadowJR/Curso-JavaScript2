@@ -1,50 +1,52 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View, Image, TouchableHighlight, Pressable } from 'react-native';
+import { Text, StyleSheet, View, Image, Button, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './Home'; // Asegúrate de que este archivo exista y esté en la misma carpeta
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // Funciones para mostrar alertas
-  const showAlert = () => {
-    Alert.alert("Alerta", "Este es un mensaje de alerta básico.");
-  };
-
-  const showCustomAlert = () => {
-    Alert.alert("Alerta Personalizada", "Este es un mensaje de alerta personalizada.");
-  };
-
-  const showGoogleAlert = () => {
-    Alert.alert("Alerta Google", "Este es un mensaje de alerta del botón con ícono de Google.");
-  };
-
   return (
-    <LinearGradient colors={['#ff0000', '#011111']} style={styles.background}>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Inicio" component={InicioScreen} />
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function InicioScreen({ navigation }) {
+  return (
+    <LinearGradient
+      colors={['#ff0000', '#011111']}
+      style={styles.background}
+    >
       <View style={styles.container}>
         <Image 
-          source={require('./assets/LOGO ORIGINAL TRANSPARENCIA.png')} // Imagen local
+          source={require('./assets/LOGO ORIGINAL TRANSPARENCIA.png')}
           style={styles.image}
         />
         <Text style={styles.text}>
           ¡Culun toda la magia del sur!
         </Text>
+        
+        {/* Botón que navegará a Home */}
+        <Button 
+          title="Home" 
+          onPress={() => navigation.navigate('Home')} 
+          color="#841584" 
+        />
       </View>
 
-      {/* Botón básico */}
-      <View style={styles.buttonContainer}>
-        <Button title="Mostrar Alerta" onPress={showAlert} />
-
-        {/* Botón personalizado con TouchableHighlight */}
-        <TouchableHighlight style={styles.customButton} onPress={showCustomAlert} underlayColor="#DDDDDD">
-          <Text style={styles.customButtonText}>Mostrar Alerta Personalizada</Text>
-        </TouchableHighlight>
-
-        {/* Botón personalizado con Pressable e ícono de Google */}
-        <Pressable style={styles.googleButton} onPress={showGoogleAlert}>
-          <Image
-            source={{ uri: 'https://developers.google.com/identity/images/branding_guideline_sample_lt_rd_lg.svg' }}
-            style={styles.googleIcon}
-          />
-          <Text style={styles.googleButtonText}>Continuar con Google</Text>
-        </Pressable>
+      {/* Imagen de Google */}
+      <View style={styles.googleContainer}>
+        <Image
+          source={{ uri: 'https://www.drupal.org/files/issues/2020-01-26/google_logo.png' }}
+          style={styles.googleImage}
+        />
       </View>
     </LinearGradient>
   );
@@ -71,43 +73,14 @@ const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
-  buttonContainer: {
-    marginTop: 30,
+  googleContainer: {
+    marginTop: 40,
+    marginBottom: 40,
     alignItems: 'center',
   },
-  customButton: {
-    backgroundColor: '#4CAF50',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    width: 250,
-    alignItems: 'center',
-  },
-  customButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#4285F4',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    width: 250,
-    justifyContent: 'center',
-  },
-  googleIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 8,
+  googleImage: {
+    width: 200,
+    height: 50,
     resizeMode: 'contain',
   },
-  googleButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
 });
-e
