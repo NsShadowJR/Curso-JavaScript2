@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, Image, Button, Alert, TouchableHighlight, Press
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function App() {
-  // Funciones para mostrar alertas
+
   const showAlert = () => Alert.alert("¡Alerta!", "Este es un botón de alerta simple.");
   const showCustomAlert = () => Alert.alert("¡Alerta Personalizada!", "Has presionado el botón personalizado.");
   const showGoogleAlert = () => Alert.alert("¡Google Alert!", "Este botón incluye un ícono de Google.");
@@ -22,14 +22,14 @@ export default function App() {
           ¡Culun toda la magia del sur!
         </Text>
         
-        {/* Botón simple */}
+
         <Button 
           title="Button" 
           onPress={showAlert} 
           color="#841584" 
         />
 
-        {/* Botón personalizado con TouchableHighlight */}
+
         <TouchableHighlight
           style={styles.customButton}
           onPress={showCustomAlert}
@@ -38,7 +38,7 @@ export default function App() {
           <Text style={styles.buttonText}>TouchableHighlight</Text>
         </TouchableHighlight>
 
-        {/* Botón personalizado con imagen de Google usando Pressable */}
+
         <Pressable style={styles.googleButton} onPress={showGoogleAlert}>
           <Image 
             source={{ uri: 'https://freelogopng.com/images/all_img/1657955079google-icon-png.png' }}
@@ -48,7 +48,7 @@ export default function App() {
         </Pressable>
       </View>
 
-      {/* Imagen de Google para registro desde URL */}
+
       <View style={styles.googleContainer}>
         <Image
           source={{ uri: 'https://www.drupal.org/files/issues/2020-01-26/google_logo.png' }}

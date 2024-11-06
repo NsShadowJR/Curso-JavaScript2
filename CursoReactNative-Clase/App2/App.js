@@ -5,13 +5,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function App() {
   return (
     <LinearGradient
-      // Define los colores
+ 
       colors={['#ff0000', '#011111']}
       style={styles.background}
     >
       <View style={styles.container}>
         <Image 
-          source={require('./assets/LOGO ORIGINAL TRANSPARENCIA.png')} // Imagen local
+          source={require('./assets/LOGO ORIGINAL TRANSPARENCIA.png')} 
           style={styles.image}
         />
         <Text style={styles.text}>
@@ -19,7 +19,7 @@ export default function App() {
         </Text>
       </View>
 
-      {/* Imagen de Google para registro desde URL */}
+
       <View style={styles.googleContainer}>
         <Image
           source={{ uri: 'https://www.drupal.org/files/issues/2020-01-26/google_logo.png' }} // Imagen desde URL
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   googleImage: {
-    width: 200, // Ajusta el ancho según sea necesario
-    height: 50, // Ajusta la altura según sea necesario
-    resizeMode: 'contain', // Mantiene la proporción de la imagen
+    width: 200, 
+    height: 50, 
+    resizeMode: 'contain', 
   },
 });

@@ -5,13 +5,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function App() {
   return (
     <LinearGradient
-      // Define los colores
       colors={['#ff0000', '#011111']}
       style={styles.background}
     >
       <View style={styles.container}>
         <Text style={styles.text}>
-          ¡Hola este es mi texto!
+          ¡Hola este es mi texto de App 1!
         </Text>
       </View>
     </LinearGradient>
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontWeight: '600', // 
+    fontWeight: '600',
     color: 'green',
   },
 });
